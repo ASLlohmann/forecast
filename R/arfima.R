@@ -119,7 +119,7 @@ unfracdiff <- function(x, y, n, h, d) {
 #' fit <- arfima(x)
 #' tsdisplay(residuals(fit))
 #'
-arfima <- function(y, drange = c(0, 0.5), estim = c("mle", "ls"), model = NULL, lambda = NULL, biasadj = FALSE, x=y, ...) {
+arfima <- function(y, drange = c(0, 0.5), estim = c("mle", "ls"), model = NULL, xreg = NULL, lambda = NULL, biasadj = FALSE, x=y, ...) {
   estim <- match.arg(estim)
   # 	require(fracdiff)
   seriesname <- deparse(substitute(y))
@@ -193,6 +193,7 @@ arfima <- function(y, drange = c(0, 0.5), estim = c("mle", "ls"), model = NULL, 
   fit$lambda <- lambda
   fit$call <- match.call()
   fit$series <- seriesname
+  fit$xreg <- xreg
   fit <- structure(fit, class = c("ARFIMA","fracdiff"))
   # fit$call$data <- data.frame(x=x) #Consider replacing fit$call with match.call for consistency and tidyness
   return(fit)
