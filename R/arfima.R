@@ -89,6 +89,8 @@ unfracdiff <- function(x, y, n, h, d) {
 #' function.
 #' @param model Output from a previous call to \code{arfima}. If model is
 #' passed, this same model is fitted to y without re-estimating any parameters.
+#' @param xreg a numerical vector or matrix of external regressors, which
+#' must have the same number of rows as y. It should not be a data frame.
 #' @param x Deprecated. Included for backwards compatibility.
 #' @param \dots Other arguments passed to \code{\link{auto.arima}} when
 #' selecting p and q.
