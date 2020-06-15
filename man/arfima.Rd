@@ -8,6 +8,7 @@ arfima(
   y,
   drange = c(0, 0.5),
   estim = c("mle", "ls"),
+  xreg = NULL,
   model = NULL,
   lambda = NULL,
   biasadj = FALSE,
@@ -25,6 +26,9 @@ arfima(
 using the Haslett-Raftery algorithm. If \code{estim=="mle"}, then the ARMA
 parameters are calculated using full MLE via the \code{\link[stats]{arima}}
 function.}
+ 
+\item{xreg}{Optionally, a numerical vector or matrix of external regressors, which
+must have the same number of rows as y. It should not be a data frame.}
 
 \item{model}{Output from a previous call to \code{arfima}. If model is
 passed, this same model is fitted to y without re-estimating any parameters.}
