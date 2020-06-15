@@ -163,9 +163,9 @@ arfima <- function(y, drange = c(0, 0.5), estim = c("mle", "ls"), model = NULL, 
       y <- fracdiff::diffseries(xx, d = fit$d)
       p <- length(fit$ar)
       q <- length(fit$ma)
-      fit2 <- try(Arima(y, order = c(p, 0, q), include.mean = FALSE))
+      fit2 <- try(Arima(y, order = c(p, 0, q), include.mean = FALSE), xreg=xreg)
       if (is.element("try-error", class(fit2))) {
-        fit2 <- try(Arima(y, order = c(p, 0, q), include.mean = FALSE, method = "ML"))
+        fit2 <- try(Arima(y, order = c(p, 0, q), xreg=xreg, include.mean = FALSE, method = "ML"))
       }
       if (!is.element("try-error", class(fit2))) {
         if (p > 0) {
